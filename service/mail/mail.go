@@ -2,9 +2,7 @@ package mail
 
 import (
 	"context"
-	"fmt"
 	"net/smtp"
-	"net/textproto"
 
 	"github.com/jordan-wright/email"
 )
@@ -19,14 +17,7 @@ type Mail struct {
 }
 
 // New returns a new instance of a Mail notification service.
-func New(senderAddress, smtpHostAddress string) *Mail {
-	return &Mail{
-		usePlainText:      false,
-		senderAddress:     senderAddress,
-		smtpHostAddr:      smtpHostAddress,
-		receiverAddresses: []string{},
-	}
-}
+func New(senderAddress, smtpHostAddress string) *Mail { _ = "STUB: not implemented"; return nil }
 
 // BodyType is used to specify the format of the body.
 type BodyType int
@@ -44,58 +35,26 @@ const (
 //
 //	-> https://pkg.go.dev/net/smtp#PlainAuth
 func (m *Mail) AuthenticateSMTP(identity, userName, password, host string) {
-	m.smtpAuth = smtp.PlainAuth(identity, userName, password, host)
+	_ = "STUB: not implemented"
+	return
 }
 
 // AddReceivers takes email addresses and adds them to the internal address list. The Send method will send
 // a given message to all those addresses.
-func (m *Mail) AddReceivers(addresses ...string) {
-	m.receiverAddresses = append(m.receiverAddresses, addresses...)
-}
+func (m *Mail) AddReceivers(addresses ...string) { _ = "STUB: not implemented"; return }
 
 // BodyFormat can be used to specify the format of the body.
 // Default BodyType is HTML.
-func (m *Mail) BodyFormat(format BodyType) {
-	switch format {
-	case PlainText:
-		m.usePlainText = true
-	case HTML:
-		m.usePlainText = false
-	default:
-		m.usePlainText = false
-	}
-}
+func (m *Mail) BodyFormat(format BodyType) { _ = "STUB: not implemented"; return }
 
 func (m *Mail) newEmail(subject, message string) *email.Email {
-	msg := &email.Email{
-		To:      m.receiverAddresses,
-		From:    m.senderAddress,
-		Subject: subject,
-		Headers: textproto.MIMEHeader{},
-	}
-
-	if m.usePlainText {
-		msg.Text = []byte(message)
-	} else {
-		msg.HTML = []byte(message)
-	}
-	return msg
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Send takes a message subject and a message body and sends them to all previously set chats. Message body supports
 // html as markup language.
 func (m Mail) Send(ctx context.Context, subject, message string) error {
-	msg := m.newEmail(subject, message)
-
-	var err error
-	select {
-	case <-ctx.Done():
-		err = ctx.Err()
-	default:
-		if err = msg.Send(m.smtpHostAddr, m.smtpAuth); err != nil {
-			err = fmt.Errorf("send email: %w", err)
-		}
-	}
-
-	return err
+	_ = "STUB: not implemented"
+	return nil
 }

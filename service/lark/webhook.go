@@ -2,7 +2,6 @@ package lark
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/go-lark/lark"
 
@@ -21,18 +20,12 @@ var _ notify.Notifier = &WebhookService{}
 // Lark group chat webhook. Note that this service does not take any
 // notification receivers because it can only push messages to the group chat
 // it belongs to.
-func NewWebhookService(webhookURL string) *WebhookService {
-	bot := lark.NewNotificationBot(webhookURL)
-	return &WebhookService{
-		cli: &larkClientGoLarkNotificationBot{
-			bot: bot,
-		},
-	}
-}
+func NewWebhookService(webhookURL string) *WebhookService { _ = "STUB: not implemented"; return nil }
 
 // Send sends the message subject and body to the group chat.
 func (w *WebhookService) Send(_ context.Context, subject, message string) error {
-	return w.cli.Send(subject, message)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // larkClientGoLarkNotificationBot is a wrapper around go-lark/lark's Bot, to
@@ -43,21 +36,6 @@ type larkClientGoLarkNotificationBot struct {
 
 // Send implements the sender interface using a go-lark/lark notification bot.
 func (w *larkClientGoLarkNotificationBot) Send(subject, message string) error {
-	content := lark.NewPostBuilder().
-		Title(subject).
-		TextTag(message, 1, false).
-		Render()
-	msg := lark.NewMsgBuffer(lark.MsgPost).Post(content)
-	res, err := w.bot.PostNotificationV2(msg.Build())
-	if err != nil {
-		return fmt.Errorf("post webhook message: %w", err)
-	}
-	if res.Code != 0 {
-		return fmt.Errorf(
-			"send failed with error code %d, please see "+
-				"https://open.larksuite.com/document/ukTMukTMukTM/ugjM14COyUjL4ITN for details",
-			res.Code,
-		)
-	}
+	_ = "STUB: not implemented"
 	return nil
 }

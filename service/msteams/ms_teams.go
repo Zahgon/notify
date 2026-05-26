@@ -2,11 +2,9 @@ package msteams
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 
 	teams "github.com/atc0005/go-teams-notify/v2"
-	"github.com/atc0005/go-teams-notify/v2/adaptivecard"
 )
 
 type teamsClient interface {
@@ -35,46 +33,27 @@ type MSTeams struct {
 // For more information about telegram api token:
 //
 //	-> https://github.com/atc0005/go-teams-notify#example-basic
-func New() *MSTeams {
-	client := teams.NewTeamsClient()
-
-	m := &MSTeams{
-		client:   client,
-		webHooks: []string{},
-	}
-
-	return m
-}
+func New() *MSTeams { _ = "STUB: not implemented"; return nil }
 
 // DisableWebhookValidation disables the validation of webhook URLs, including the validation of known prefixes so that
 // custom/private webhook URL endpoints can be used (e.g., testing purposes).
 // For more information about telegram api token:
 //
 //	-> https://github.com/atc0005/go-teams-notify#example-disable-webhook-url-prefix-validation
-func (m *MSTeams) DisableWebhookValidation() {
-	m.client.SkipWebhookURLValidationOnSend(true)
-}
+func (m *MSTeams) DisableWebhookValidation() { _ = "STUB: not implemented"; return }
 
 // WithWrapText sets the wrapText field to the provided value. This is disabled by default.
-func (m *MSTeams) WithWrapText(wrapText bool) {
-	m.wrapText = wrapText
-}
+func (m *MSTeams) WithWrapText(wrapText bool) { _ = "STUB: not implemented"; return }
 
 // AddReceivers takes MSTeams channel web-hooks and adds them to the internal web-hook list. The Send method will send
 // a given message to all those chats.
-func (m *MSTeams) AddReceivers(webHooks ...string) {
-	m.webHooks = append(m.webHooks, webHooks...)
-}
+func (m *MSTeams) AddReceivers(webHooks ...string) { _ = "STUB: not implemented"; return }
 
 // SetUseragent allows the user to set a custom user agent.
-func (m *MSTeams) SetUseragent(userAgent string) {
-	m.client = m.client.SetUserAgent(userAgent)
-}
+func (m *MSTeams) SetUseragent(userAgent string) { _ = "STUB: not implemented"; return }
 
 // SetHTTPClient allows the user to set a custom http client.
-func (m *MSTeams) SetHTTPClient(httpClient *http.Client) {
-	m.client = m.client.SetHTTPClient(httpClient)
-}
+func (m *MSTeams) SetHTTPClient(httpClient *http.Client) { _ = "STUB: not implemented"; return }
 
 // Send accepts a subject and a message body and sends them to all previously specified channels. Message body supports
 // html as markup language.
@@ -82,21 +61,6 @@ func (m *MSTeams) SetHTTPClient(httpClient *http.Client) {
 //
 //	-> https://github.com/atc0005/go-teams-notify#example-basic
 func (m MSTeams) Send(ctx context.Context, subject, message string) error {
-	msg, err := adaptivecard.NewSimpleMessage(message, subject, m.wrapText)
-	if err != nil {
-		return fmt.Errorf("create message: %w", err)
-	}
-
-	for _, webHook := range m.webHooks {
-		select {
-		case <-ctx.Done():
-			return ctx.Err()
-		default:
-			if err = m.client.SendWithContext(ctx, webHook, msg); err != nil {
-				return fmt.Errorf("send message to channel %q: %w", webHook, err)
-			}
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }

@@ -18,15 +18,18 @@ type mockverificationCallbackFunc_Expecter struct {
 }
 
 func (_m *mockverificationCallbackFunc) EXPECT() *mockverificationCallbackFunc_Expecter {
-	return &mockverificationCallbackFunc_Expecter{mock: &_m.Mock}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Execute provides a mock function with given fields: r, verified
 func (_m *mockverificationCallbackFunc) Execute(r *http.Request, verified bool) {
-	_m.Called(r, verified)
+	_ = "STUB: not implemented"
+	return
+
+	// mockverificationCallbackFunc_Execute_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Execute'
 }
 
-// mockverificationCallbackFunc_Execute_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Execute'
 type mockverificationCallbackFunc_Execute_Call struct {
 	*mock.Call
 }
@@ -35,24 +38,23 @@ type mockverificationCallbackFunc_Execute_Call struct {
 //   - r *http.Request
 //   - verified bool
 func (_e *mockverificationCallbackFunc_Expecter) Execute(r interface{}, verified interface{}) *mockverificationCallbackFunc_Execute_Call {
-	return &mockverificationCallbackFunc_Execute_Call{Call: _e.mock.On("Execute", r, verified)}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (_c *mockverificationCallbackFunc_Execute_Call) Run(run func(r *http.Request, verified bool)) *mockverificationCallbackFunc_Execute_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(*http.Request), args[1].(bool))
-	})
-	return _c
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (_c *mockverificationCallbackFunc_Execute_Call) Return() *mockverificationCallbackFunc_Execute_Call {
-	_c.Call.Return()
-	return _c
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (_c *mockverificationCallbackFunc_Execute_Call) RunAndReturn(run func(*http.Request, bool)) *mockverificationCallbackFunc_Execute_Call {
-	_c.Call.Return(run)
-	return _c
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // newMockverificationCallbackFunc creates a new instance of mockverificationCallbackFunc. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
@@ -61,10 +63,6 @@ func newMockverificationCallbackFunc(t interface {
 	mock.TestingT
 	Cleanup(func())
 }) *mockverificationCallbackFunc {
-	mock := &mockverificationCallbackFunc{}
-	mock.Mock.Test(t)
-
-	t.Cleanup(func() { mock.AssertExpectations(t) })
-
-	return mock
+	_ = "STUB: not implemented"
+	return nil
 }

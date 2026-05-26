@@ -13,16 +13,16 @@ type mockOption_Expecter struct {
 	mock *mock.Mock
 }
 
-func (_m *mockOption) EXPECT() *mockOption_Expecter {
-	return &mockOption_Expecter{mock: &_m.Mock}
-}
+func (_m *mockOption) EXPECT() *mockOption_Expecter { _ = "STUB: not implemented"; return nil }
 
 // Execute provides a mock function with given fields: _a0
 func (_m *mockOption) Execute(_a0 *Mailgun) {
-	_m.Called(_a0)
+	_ = "STUB: not implemented"
+
+	// mockOption_Execute_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Execute'
+	return
 }
 
-// mockOption_Execute_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Execute'
 type mockOption_Execute_Call struct {
 	*mock.Call
 }
@@ -30,24 +30,23 @@ type mockOption_Execute_Call struct {
 // Execute is a helper method to define mock.On call
 //   - _a0 *Mailgun
 func (_e *mockOption_Expecter) Execute(_a0 interface{}) *mockOption_Execute_Call {
-	return &mockOption_Execute_Call{Call: _e.mock.On("Execute", _a0)}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (_c *mockOption_Execute_Call) Run(run func(_a0 *Mailgun)) *mockOption_Execute_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(*Mailgun))
-	})
-	return _c
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (_c *mockOption_Execute_Call) Return() *mockOption_Execute_Call {
-	_c.Call.Return()
-	return _c
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (_c *mockOption_Execute_Call) RunAndReturn(run func(*Mailgun)) *mockOption_Execute_Call {
-	_c.Call.Return(run)
-	return _c
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // newMockOption creates a new instance of mockOption. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
@@ -56,10 +55,6 @@ func newMockOption(t interface {
 	mock.TestingT
 	Cleanup(func())
 }) *mockOption {
-	mock := &mockOption{}
-	mock.Mock.Test(t)
-
-	t.Cleanup(func() { mock.AssertExpectations(t) })
-
-	return mock
+	_ = "STUB: not implemented"
+	return nil
 }

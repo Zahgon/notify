@@ -17,29 +17,19 @@ type ReceiverID struct {
 }
 
 // OpenID specifies an ID as a Lark Open ID.
-func OpenID(s string) *ReceiverID {
-	return &ReceiverID{s, openID}
-}
+func OpenID(s string) *ReceiverID { _ = "STUB: not implemented"; return nil }
 
 // UserID specifies an ID as a Lark User ID.
-func UserID(s string) *ReceiverID {
-	return &ReceiverID{s, userID}
-}
+func UserID(s string) *ReceiverID { _ = "STUB: not implemented"; return nil }
 
 // UnionID specifies an ID as a Lark Union ID.
-func UnionID(s string) *ReceiverID {
-	return &ReceiverID{s, unionID}
-}
+func UnionID(s string) *ReceiverID { _ = "STUB: not implemented"; return nil }
 
 // Email specifies a receiver ID as an email.
-func Email(s string) *ReceiverID {
-	return &ReceiverID{s, email}
-}
+func Email(s string) *ReceiverID { _ = "STUB: not implemented"; return nil }
 
 // ChatID specifies an ID as a Lark Chat ID.
-func ChatID(s string) *ReceiverID {
-	return &ReceiverID{s, chatID}
-}
+func ChatID(s string) *ReceiverID { _ = "STUB: not implemented"; return nil }
 
 // receiverIDType represents the different ID types implemented by Lark. This
 // information is required when sending a message. More information about the

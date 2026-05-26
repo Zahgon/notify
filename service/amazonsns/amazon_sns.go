@@ -2,11 +2,7 @@ package amazonsns
 
 import (
 	"context"
-	"fmt"
 
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/sns"
 )
 
@@ -29,7 +25,8 @@ func (s snsSendMessageClient) SendMessage(ctx context.Context,
 	params *sns.PublishInput,
 	optFns ...func(*sns.Options),
 ) (*sns.PublishOutput, error) {
-	return s.client.Publish(ctx, params, optFns...)
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // AmazonSNS Basic structure with SNS information.
@@ -40,43 +37,22 @@ type AmazonSNS struct {
 
 // New creates a new AmazonSNS.
 func New(accessKeyID, secretKey, region string) (*AmazonSNS, error) {
-	credProvider := credentials.NewStaticCredentialsProvider(accessKeyID, secretKey, "")
-	cfg, err := config.LoadDefaultConfig(
-		context.Background(),
-		config.WithCredentialsProvider(credProvider),
-		config.WithRegion(region),
-	)
-	if err != nil {
-		return nil, err
-	}
-	client := sns.NewFromConfig(cfg)
-	return &AmazonSNS{
-		sendMessageClient: snsSendMessageClient{client: client},
-	}, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 // AddReceivers takes queue urls and adds them to the internal topics
 // list. The Send method will send a given message to all those
 // Topics.
-func (s *AmazonSNS) AddReceivers(queues ...string) {
-	s.queueTopics = append(s.queueTopics, queues...)
-}
+func (s *AmazonSNS) AddReceivers(queues ...string) { _ = "STUB: not implemented"; return }
 
 // Send message to everyone on all topics.
 func (s AmazonSNS) Send(ctx context.Context, subject, message string) error {
+	_ = "STUB: not implemented"
 	// For each topic
-	for _, topic := range s.queueTopics {
-		// Create new input with subject, message and the specific topic
-		input := &sns.PublishInput{
-			Subject:  aws.String(subject),
-			Message:  aws.String(message),
-			TopicArn: aws.String(topic),
-		}
-		// Send the message
-		_, err := s.sendMessageClient.SendMessage(ctx, input)
-		if err != nil {
-			return fmt.Errorf("send message using Amazon SNS to ARN TOPIC %q: %w", topic, err)
-		}
-	}
 	return nil
 }
+
+// Create new input with subject, message and the specific topic
+
+// Send the message

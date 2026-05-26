@@ -32,60 +32,29 @@ type Notify struct {
 type Option func(*Notify)
 
 // Enable is an Option function that enables the Notify instance. This is the default behavior.
-func Enable(n *Notify) {
-	if n != nil {
-		n.Disabled = false
-	}
-}
+func Enable(n *Notify) { _ = "STUB: not implemented"; return }
 
 // Disable is an Option function that disables the Notify instance. It is enabled by default.
-func Disable(n *Notify) {
-	if n != nil {
-		n.Disabled = true
-	}
-}
+func Disable(n *Notify) { _ = "STUB: not implemented"; return }
 
 // WithOptions applies the given options to the Notify instance. If no options are provided, it returns the Notify
 // instance unchanged.
-func (n *Notify) WithOptions(options ...Option) *Notify {
-	if options == nil {
-		return n
-	}
-
-	for _, option := range options {
-		if option != nil {
-			option(n)
-		}
-	}
-
-	return n
-}
+func (n *Notify) WithOptions(options ...Option) *Notify { _ = "STUB: not implemented"; return nil }
 
 // NewWithOptions returns a new instance of Notify with the given options. If no options are provided, it returns a new
 // Notify instance with default options. By default, the Notify instance is enabled.
-func NewWithOptions(options ...Option) *Notify {
-	n := &Notify{
-		Disabled:  false,               // Enabled by default.
-		notifiers: make([]Notifier, 0), // Avoid nil list.
-	}
+func NewWithOptions(options ...Option) *Notify { _ = "STUB: not implemented"; return nil }
 
-	return n.WithOptions(options...)
-}
+// Enabled by default.
+// Avoid nil list.
 
 // New returns a new instance of Notify. It returns a new Notify instance with default options. By default, the Notify
 // instance is enabled.
-func New() *Notify {
-	return NewWithOptions()
-}
+func New() *Notify { _ = "STUB: not implemented"; return nil }
 
 // NewWithServices returns a new instance of Notify with the given services. By default, the Notify instance is enabled.
 // If no services are provided, it returns a new Notify instance with default options.
-func NewWithServices(services ...Notifier) *Notify {
-	n := New()
-	n.UseServices(services...)
-
-	return n
-}
+func NewWithServices(services ...Notifier) *Notify { _ = "STUB: not implemented"; return nil }
 
 // Create the package level Notify instance.
 //
@@ -93,6 +62,4 @@ func NewWithServices(services ...Notifier) *Notify {
 var std = New()
 
 // Default returns the standard Notify instance used by the package-level send function.
-func Default() *Notify {
-	return std
-}
+func Default() *Notify { _ = "STUB: not implemented"; return nil }
